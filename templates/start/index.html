@@ -1,0 +1,18 @@
+{% extends "main.html" %}
+
+{% block title %}
+    <title>Выбрать тест</title>
+{% endblock %}
+
+{% block body %}
+    <h1>Пройти тест</h1>
+	{% if latest_tests %}
+    <ul>
+    {% for test in latest_tests %}
+        <li><a href="/start/{{ test.id }}">{{ test.name }}</a></li>
+    {% endfor %}
+    </ul>
+	{% else %}
+    <p>Тестов пока нет. Зайдите позже или добавьте свои.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "main.html" %}
+{% block title %}
+	<meta charset="UTF-8">
+	<title>Создание теста</title>
+
+	{% load staticfiles %}
+	<script src="{% static 'js/createapp.js' %}"></script>
+{% endblock %}
+
+{% block body%}
+<body>
+	<h1>Новый тест</h1>
+
+	{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+	<div class="content">
+		<form action="{% url 'create:result'%}" method="post">
+			{% csrf_token %}
+			<div class="testName">
+				<input type="text" name="test_name" value="Введите название теста">
+			</div>
+			<div class="questionBox">
+				
+			</div>
+			<button type="button" class="newQuestion">Новый вопрос</button>
+			<input type="submit" value="Готово!">
+		</form>
+	</div>
+</body>
+</html>
+{% endblock %}

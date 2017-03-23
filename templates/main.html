@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load staticfiles %}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+{#    <link rel="stylesheet" href="{% static 'css/main.css'%}">#}
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,300" type="text/css">
+    {% block title %}
+
+    {% endblock %}
+</head>
+<body>
+    {% block head %}
+        {% block staticbuttons %}
+        <dev class="headbutton staticbuttons">
+            <a href="{% url 'create:index' %}">Создать тест</a>
+        </dev>
+        <dev class="headbutton staticbuttons">
+            <a href="{% url 'startsurvey:index' %}">Выбрать тест</a>
+        </dev>
+        <dev class="headbutton staticbuttons">
+        </dev>
+        {% endblock %}
+        {% block dynamicbuttons %}
+            <dev class="headbutton dynamicbuttons">
+
+            </dev>
+        {% endblock %}
+    {% endblock%}
+
+    {% autoescape on %}
+    {% block body %}
+    {% endblock%}
+    {% endautoescape %}
+</body>
+</html>
+
+
